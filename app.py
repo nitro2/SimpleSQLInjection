@@ -62,7 +62,7 @@ def login():
 
 
 # Route to display data from the database
-@app.route('/')
+@app.route('/index')
 def index():
     if not session.get('logged_in'):
         return redirect(url_for('login'))
@@ -72,6 +72,7 @@ def index():
     return render_template('index.html', entries=[])
 
 # Route for logout
+@app.route('/')
 @app.route('/logout')
 def logout():
     session.pop('logged_in', None)
